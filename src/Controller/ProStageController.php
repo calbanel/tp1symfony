@@ -7,35 +7,30 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ProStageController extends AbstractController
 {
-    /**
-     * @Route("/", name="pro_stage")
-     */
+
     public function index()
     {
-        return $this->render('pro_stage/index.html.twig', [
-            'controller_name' => 'ProStageController',
-        ]);
+        return $this->render('pro_stage/index.html.twig');
     }
 
-    /**
-     * @Route("/entreprises", name="pro_stage")
-     */
     public function entreprises()
     {
-        return $this->render('pro_stage/entreprises.html.twig', [
-            'controller_name' => 'ProStageController',
-        ]);
+        return $this->render('pro_stage/entreprises.html.twig');
     }
 
-    /**
-     * @Route("/formations", name="pro_stage")
-     */
     public function formations()
     {
-        return $this->render('pro_stage/formations.html.twig', [
-            'controller_name' => 'ProStageController',
-        ]);
+        return $this->render('pro_stage/formations.html.twig');
     }
+
+    public function stages($id)
+    {
+        return $this->render('pro_stage/stages.html.twig',
+                                        ['id'=>$id]);
+    }
+
+
+
 }
 
 
