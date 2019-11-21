@@ -9,10 +9,40 @@
     </head>
     <body>
         {% block slider %}
-        	<h1><center>--- ProStage ---</center></h1>
+        	<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+			  <div class="carousel-inner">
+			    <div class="carousel-item active">
+			        <img src="..." class="d-block w-100" alt="...">
+			    </div>
+			    <div class="carousel-item">
+			      <img src="..." class="d-block w-100" alt="...">
+			    </div>
+			    <div class="carousel-item">
+			      <img src="..." class="d-block w-100" alt="...">
+			    </div>
+			  </div>
+			</div>
         {% endblock %}
-        	<h1>-- Accueil -- Entreprises -- Formations --</h1>
         {% block menu %}
+        	<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+			  <a class="navbar-brand" href="{{ path('index') }}">Acceuil</a>
+			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+			    <span class="navbar-toggler-icon"></span>
+			  </button>
+			  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+			    <ul class="navbar-nav">
+			      <li class="nav-item active">
+			        <a class="nav-link" href="">Accueil <span class="sr-only">(current)</span></a>
+			      </li>
+			      <li class="nav-item">
+			        <a class="nav-link" href="{{ path('entreprises') }}">Entreprises</a>
+			      </li>
+			      <li class="nav-item">
+			        <a class="nav-link" href="{{ path('formations') }}">Formations</a>
+			      </li>
+			    </ul>
+			  </div>
+			</nav>
         {% endblock %}
         {% block contenu %}
         {% endblock %}
