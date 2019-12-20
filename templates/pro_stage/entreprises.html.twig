@@ -2,6 +2,65 @@
 
 {% block contenu %}
 
-	<h1>Cette page affichera la liste des entreprises proposant un stage</h1>
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>
+							#
+						</th>
+						<th>
+							Nom
+						</th>
+						<th>
+							Activité
+						</th>
+						<th>
+							Adresse
+						</th>
+						<th>
+							Email
+						</th>
+						<th>
+							Site Web
+						</th>
+						<th>
+							/
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					
+					{% for entreprise in entreprises %}
+					<tr>
+						<td>
+							{{ entreprise.id }}
+						</td>
+						<td>
+							{{ entreprise.nom }}
+						</td>
+						<td>
+							{{ entreprise.activite }}
+						</td>
+						<td>
+							{{ entreprise.adresse }}
+						</td>
+						<td>
+							{{ entreprise.email }}
+						</td>
+						<td>
+							{{ entreprise.siteweb }}
+						</td>
+						<td>
+							<a class="link" href="/">Découvrir</a>
+						</td>
+					</tr>
+					{% endfor %}
+					
+				</tbody>
+			</table>
+		</div>
+	</div>
 
 {% endblock %}

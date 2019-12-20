@@ -3,6 +3,50 @@
 
 {% block contenu %}
 
-	<h1>Cette page affichera le descriptif du stage ayant pour identifiant {{id}}</h1>
+	<h1><center>{{stage.titre}}</center></h1>
+
+		<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-6">
+					<dl>
+						<dt>
+							Description du stage
+						</dt>
+						<dd>
+							{{stage.description}}
+						</dd>
+						<dt>
+							Formation concernés
+						</dt>
+						<dd>
+
+						</dd>
+						<dt>
+							Email de contact (si intéréssé par l'offre)
+						</dt>
+						<dd>
+							{{stage.email}}
+						</dd>
+					</dl>
+				</div>
+				<div class="col-md-6">
+					<div class="card text-white bg-info">
+						<h5 class="card-header">
+							Entreprise
+						</h5>
+						<div class="card-body">
+							<p class="card-text">
+								Card content
+							</p>
+						</div>
+						<div class="card-footer">
+							Card footer
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 {% endblock %}
