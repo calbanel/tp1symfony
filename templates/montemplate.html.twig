@@ -6,20 +6,21 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         {% block stylesheets %}
         	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        	
         {% endblock %}
     </head>
-    <body>
+    <body style="background: #b2dfdb;">
         {% block slider %}
         <div class="page-header">
 				<h1>
-					<center>Prostage</center>
+					<center><img src="logo.png"></center>
 				</h1>
 			</div>
         {% endblock %}
         {% block menu %}
         	<div class="row">
 		<div class="col-md-12">
-			<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #2BBBAD;">
 				 
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 					<span class="navbar-toggler-icon"></span>
@@ -27,7 +28,7 @@
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="navbar-nav">
 						<li class="nav-item active">
-							 <a class="nav-link" href="entreprises">Entreprises</a>
+							 <a class="nav-link" href="/entreprises">Entreprises</a>
 						</li>
 						<li class="nav-item">
 							 <a class="nav-link" href="formations">Formations</a>
@@ -36,11 +37,21 @@
 			</nav>
 		</div>
 	</div>
+	<BR>
+        
         {% endblock %}
         {% block contenu %}
         {% endblock %}
         {% block footer %}
-        	<p>Crée par C.Albanel</p>
+        <footer class="page-footer font-small" style="background-color: #2BBBAD;">
+
+  			<!-- Copyright -->
+  			<div class="footer-copyright text-center py-3">© 2019 Copyright:
+   				<a href="https://github.com/calbanel/tp1symfony"> calbanel</a>
+  			</div>
+
+		</footer>
+       
         {% endblock %}
         {% block javascripts %}
         	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

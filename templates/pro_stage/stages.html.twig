@@ -4,6 +4,8 @@
 {% block contenu %}
 
 	<h1><center>{{stage.titre}}</center></h1>
+	<BR>
+	<BR>
 
 		<div class="row">
 		<div class="col-md-12">
@@ -20,7 +22,11 @@
 							Formation concernés
 						</dt>
 						<dd>
+							{% for formation in stage.formations %}
 
+								{{formation.nomCourt}} ({{formation.nomLong}})<BR>
+								
+							{% endfor %}
 						</dd>
 						<dt>
 							Email de contact (si intéréssé par l'offre)
@@ -33,15 +39,17 @@
 				<div class="col-md-6">
 					<div class="card text-white bg-info">
 						<h5 class="card-header">
-							Entreprise
+							Entreprise {{stage.entreprise.nom}}
 						</h5>
 						<div class="card-body">
 							<p class="card-text">
-								Card content
+								{{stage.entreprise.activite}}
 							</p>
 						</div>
 						<div class="card-footer">
-							Card footer
+							{{stage.entreprise.adresse}}<BR>
+							{{stage.entreprise.email}}<BR>
+							{{stage.entreprise.siteweb}}
 						</div>
 					</div>
 				</div>

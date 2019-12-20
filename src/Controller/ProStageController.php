@@ -15,6 +15,7 @@ class ProStageController extends AbstractController
     {
         $repositoryStage=$this->getDoctrine()->getRepository(Stage::class);
         $stages = $repositoryStage->findAll();
+
         return $this->render('pro_stage/index.html.twig', ['stages' => $stages]);
     }
 
