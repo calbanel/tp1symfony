@@ -42,6 +42,20 @@ class ProStageController extends AbstractController
                                         ['stage'=>$stage]);
     }
 
+    public function affichageStageParEntreprise($id)
+    {
+        $repositoryEntreprise=$this->getDoctrine()->getRepository(Entreprise::class);
+        $entreprise = $repositoryEntreprise->find($id);
+        return $this->render('pro_stage/affichageStageParEntreprise.html.twig', ['entreprise' => $entreprise]);
+    }
+
+    public function affichageStageParFormation($id)
+    {
+        $repositoryFormation=$this->getDoctrine()->getRepository(Formation::class);
+        $formation = $repositoryFormation->find($id);
+        return $this->render('pro_stage/affichageStageParFormation.html.twig', ['formation' => $formation]);
+    }
+
 
 
 }
