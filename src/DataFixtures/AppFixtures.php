@@ -36,7 +36,7 @@ class AppFixtures extends Fixture
 
 
         $tabEntreprises = array();
-        for ($i=0; $i < 10; $i++) {
+        for ($i=0; $i < 8; $i++) {
             $entreprise = new Entreprise();
             $entreprise->setNom($faker->company)
                 ->setActivite($faker->realText($maxNbChars = 200, $indexSize = 2))
@@ -48,7 +48,7 @@ class AppFixtures extends Fixture
             $manager->persist($entreprise);
         }
 
-        for ($i=0; $i < 20; $i++) {
+        for ($i=0; $i < 50; $i++) {
             $stage = new Stage();
             $stage->setTitre($faker->catchPhrase)
                 ->setDescription($faker->realText($maxNbChars = 200, $indexSize = 2))
