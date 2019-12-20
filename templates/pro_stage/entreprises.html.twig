@@ -2,10 +2,12 @@
 
 {% block contenu %}
 
+<h3><center>Liste des entreprises proposant un stage</center></h3>
+
 	<div class="row">
 		<div class="col-md-12">
-			<table class="table">
-				<thead>
+			<table class="table table-light">
+				<thead class="thead-dark">
 					<tr>
 						<th>
 							#
@@ -53,7 +55,7 @@
 							{{ entreprise.siteweb }}
 						</td>
 						<td>
-							<a class="link" href="/">Découvrir</a>
+							<a class="link" href="/">Découvrir stages</a>
 						</td>
 					</tr>
 					{% endfor %}

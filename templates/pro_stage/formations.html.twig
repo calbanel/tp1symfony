@@ -2,6 +2,55 @@
 
 {% block contenu %}
 
-	<h1>Cette page affichera la liste des formations de l'IUT</h1>
+	<h3><center>Liste des formations concernés par au moins un stage</center></h3>
+
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table table-light">
+				<thead class="thead-dark">
+					<tr>
+						<th>
+							#
+						</th>
+
+						<th>
+							Nom Court
+						</th>
+
+						<th>
+							Nom Long
+						</th>
+				
+						<th>
+							/
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					
+					{% for formation in formations %}
+					<tr>
+						<td>
+							{{ formation.id }}
+						</td>
+						
+						<td>
+							{{ formation.nomCourt }}
+						</td>
+
+						<td>
+							{{ formation.nomLong }}
+						</td>
+						
+						<td>
+							<a class="link" href="/">Découvrir stages</a>
+						</td>
+					</tr>
+					{% endfor %}
+					
+				</tbody>
+			</table>
+		</div>
+	</div>
 
 {% endblock %}
