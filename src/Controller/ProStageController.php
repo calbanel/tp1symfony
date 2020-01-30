@@ -15,7 +15,8 @@ class ProStageController extends AbstractController
     public function index(StageRepository $repositoryStage)
     {
 
-        $stages = $repositoryStage->findAll();
+        //$stages = $repositoryStage->findAll();   9 requetes DB
+        $stages = $repositoryStage->findAllStagesEntreprise();   // 1 requete DB
 
         return $this->render('pro_stage/index.html.twig', ['stages' => $stages]);
     }
