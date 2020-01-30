@@ -7,13 +7,14 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Entreprise;
 use App\Entity\Formation;
 use App\Entity\Stage;
+use App\Repository\StageRepository;
 
 class ProStageController extends AbstractController
 {
 
-    public function index()
+    public function index(StageRepository $repositoryStage)
     {
-        $repositoryStage=$this->getDoctrine()->getRepository(Stage::class);
+
         $stages = $repositoryStage->findAll();
 
         return $this->render('pro_stage/index.html.twig', ['stages' => $stages]);
