@@ -22,3 +22,8 @@ stages:
     path: /stages/{id}
     controller: App\Controller\ProStageController::stages
 
+formulaireEntreprise:
+    path: /creationEntreprise
+    controller: App\Controller\ProStageController::affichageFormulaireCreationEntreprise
+
+

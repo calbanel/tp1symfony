@@ -48,14 +48,41 @@ class ProStageController extends AbstractController
     {
         $repositoryEntreprise=$this->getDoctrine()->getRepository(Entreprise::class);
         $entreprise = $repositoryEntreprise->find($id);
-        return $this->render('pro_stage/affichageStageParEntreprise.html.twig', ['entreprise' => $entreprise]);
+
+        $repositoryStage=$this->getDoctrine()->getRepository(Stage::class);
+        $stages = $repositoryStage->findStagesByNomEntreprise($entreprise->getNom());
+
+        return $this->render('pro_stage/index.html.twig', ['stages' => $stages]);
     }
 
     public function affichageStageParFormation($id)
     {
         $repositoryFormation=$this->getDoctrine()->getRepository(Formation::class);
         $formation = $repositoryFormation->find($id);
-        return $this->render('pro_stage/affichageStageParFormation.html.twig', ['formation' => $formation]);
+
+        $repositoryStage=$this->getDoctrine()->getRepository(Stage::class);
+        $stages = $repositoryStage->findStageByNomFormations($formation->getNomCourt());
+
+        return $this->render('pro_stage/index.html.twig', ['stages' => $stages]);
+    }
+
+    public function affichageFormulaireCreationEntreprise()
+    {
+        $entreprise = new Entreprise();
+
+        $formulaireEntreprise = $this->createFormBuilder($entreprise)
+                                    ->add('nom')
+                                    ->add('activite')
+                                    ->add('adresse')
+                                    ->add('email')
+                                    ->add('siteWeb')
+                                    ->getForm()
+                                    ;
+
+
+        $vueFormulaireEntreprise = $formulaireEntreprise->createView();
+
+        return $this->render('pro_stage/formulaireEntreprise.html.twig', ['vueFormulaireEntreprise' => $vueFormulaireEntreprise]);
     }
 
 
