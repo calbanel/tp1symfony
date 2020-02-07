@@ -7,9 +7,17 @@
 	<BR>
 	<BR>
 
-		 {{form(vueFormulaireEntreprise)}}
+		 {{form_start(vueFormulaireEntreprise)}}
+		 {{form_start(vueFormulaireEntreprise.nom)}}
+		 {{form_start(vueFormulaireEntreprise.activite)}}
+		 {{form_start(vueFormulaireEntreprise.adresse)}}
+		 {{form_start(vueFormulaireEntreprise.email)}}
+		 {{form_start(vueFormulaireEntreprise.siteWeb)}} 
+		 <button type="submit" class="btn btn-dark">Valider</button>
+		 {{form_end(vueFormulaireEntreprise)}}
+		 
 
-	</div>
+
 
 
 {% endblock %}

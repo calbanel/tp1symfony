@@ -8,6 +8,8 @@ use App\Entity\Entreprise;
 use App\Entity\Formation;
 use App\Entity\Stage;
 use App\Repository\StageRepository;
+use Symfony\Component\HttpFoundation\Request;
+use Doctrine\Common\Persistence\ObjectManager;
 
 class ProStageController extends AbstractController
 {
@@ -66,7 +68,7 @@ class ProStageController extends AbstractController
         return $this->render('pro_stage/index.html.twig', ['stages' => $stages]);
     }
 
-    public function affichageFormulaireCreationEntreprise()
+    public function affichageFormulaireCreationEntreprise(Request $requetteHttp, ObjectManager $manager)
     {
         $entreprise = new Entreprise();
 
@@ -81,6 +83,17 @@ class ProStageController extends AbstractController
 
 
         $vueFormulaireEntreprise = $formulaireEntreprise->createView();
+
+        $formulaireEntreprise->handleRequest($requetteHttp);
+
+        if($formulaireEntreprise->isSubmitted()){
+
+            $manager->persist($entreprise);
+            $manager->flush();
+
+            return $this->redirectToRoute('entreprises');
+
+        }
 
         return $this->render('pro_stage/formulaireEntreprise.html.twig', ['vueFormulaireEntreprise' => $vueFormulaireEntreprise]);
     }
