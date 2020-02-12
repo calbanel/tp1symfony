@@ -86,7 +86,7 @@ class ProStageController extends AbstractController
 
         $formulaireEntreprise->handleRequest($requetteHttp);
 
-        if($formulaireEntreprise->isSubmitted()){
+        if($formulaireEntreprise->isSubmitted() && $formulaireEntreprise->isValid()){
 
             $manager->persist($entreprise);
             $manager->flush();
@@ -103,16 +103,16 @@ class ProStageController extends AbstractController
     {
 
         $formulaireEntreprise = $this->createFormBuilder($entreprise)
-        ->add('Nom')
-        ->add('Activite')
-        ->add('Adresse')
-        ->add('Email')
-        ->add('SiteWeb')
+        ->add('nom')
+        ->add('activite')
+        ->add('adresse')
+        ->add('email')
+        ->add('siteWeb')
         ->getForm();
 
         $formulaireEntreprise->handleRequest($request);
 
-         if ($formulaireEntreprise->isSubmitted() )
+         if ($formulaireEntreprise->isSubmitted() && $formulaireEntreprise->isValid())
          {
 
             $manager->persist($entreprise);
