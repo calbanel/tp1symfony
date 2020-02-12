@@ -95,7 +95,33 @@ class ProStageController extends AbstractController
 
         }
 
-        return $this->render('pro_stage/formulaireEntreprise.html.twig', ['vueFormulaireEntreprise' => $vueFormulaireEntreprise]);
+        return $this->render('pro_stage/formulaireEntreprise.html.twig',['vueFormulaireEntreprise' => $formulaireEntreprise->createView(), 'action'=>"ajout"]);
+    }
+
+
+    public function formulaireModifEntreprise(Request $request, ObjectManager $manager, Entreprise $entreprise)
+    {
+
+        $formulaireEntreprise = $this->createFormBuilder($entreprise)
+        ->add('Nom')
+        ->add('Activite')
+        ->add('Adresse')
+        ->add('Email')
+        ->add('SiteWeb')
+        ->getForm();
+
+        $formulaireEntreprise->handleRequest($request);
+
+         if ($formulaireEntreprise->isSubmitted() )
+         {
+
+            $manager->persist($entreprise);
+            $manager->flush();
+
+            return $this->redirectToRoute('entreprises');
+         }
+
+        return $this->render('pro_stage/formulaireEntreprise.html.twig',['vueFormulaireEntreprise' => $formulaireEntreprise->createView(), 'action'=>"modifier"]);
     }
 
 

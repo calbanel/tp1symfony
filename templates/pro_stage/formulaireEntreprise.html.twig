@@ -3,21 +3,42 @@
 
 {% block contenu %}
 
-	<h1><center>Formulaire création entreprise</center></h1>
+{% if action == "ajout" %}
+ <h1><center>Formulaire création entreprise</center></h1>
 	<BR>
 	<BR>
 
 		 {{form_start(vueFormulaireEntreprise)}}
-		 {{form_start(vueFormulaireEntreprise.nom)}}
-		 {{form_start(vueFormulaireEntreprise.activite)}}
-		 {{form_start(vueFormulaireEntreprise.adresse)}}
-		 {{form_start(vueFormulaireEntreprise.email)}}
-		 {{form_start(vueFormulaireEntreprise.siteWeb)}} 
+{{ form_row(vueFormulaireEntreprise.nom)}}
+{{ form_row(vueFormulaireEntreprise.activite)}}
+{{ form_row(vueFormulaireEntreprise.adresse)}}
+{{ form_row(vueFormulaireEntreprise.email)}}
+{{ form_row(vueFormulaireEntreprise.siteWeb)}}
 		 <button type="submit" class="btn btn-dark">Valider</button>
 		 {{form_end(vueFormulaireEntreprise)}}
+
+ {% else %}
+ <h1><center>Formulaire modification entreprise</center></h1>
+ 	<BR>
+	<BR>
+
+{{form_start(vueFormulaireEntreprise)}}
+
+{{ form_row(vueFormulaireEntreprise.Nom)}}
+{{ form_row(vueFormulaireEntreprise.Activite)}}
+{{ form_row(vueFormulaireEntreprise.Adresse)}}
+{{ form_row(vueFormulaireEntreprise.Email)}}
+{{ form_row(vueFormulaireEntreprise.SiteWeb)}}
+<button type="submit" class="btn btn-dark">Valider</button>
+{{form_end(vueFormulaireEntreprise)}}
+ {% endif %}
+
+
+	
 		 
 
 
-
+<BR>
+	<BR>
 
 {% endblock %}

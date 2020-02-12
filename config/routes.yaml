@@ -26,4 +26,10 @@ formulaireEntreprise:
     path: /creationEntreprise
     controller: App\Controller\ProStageController::affichageFormulaireCreationEntreprise
 
+formulaireModifEntreprise:
+    path: /modifEntreprise/{id}
+    controller: App\Controller\ProStageController::formulaireModifEntreprise
+
+
+
 
