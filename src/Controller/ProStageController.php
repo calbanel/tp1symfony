@@ -7,6 +7,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Entreprise;
 use App\Entity\Formation;
 use App\Entity\Stage;
+use App\Form\EntrepriseType;
 use App\Repository\StageRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -72,14 +73,7 @@ class ProStageController extends AbstractController
     {
         $entreprise = new Entreprise();
 
-        $formulaireEntreprise = $this->createFormBuilder($entreprise)
-                                    ->add('nom')
-                                    ->add('activite')
-                                    ->add('adresse')
-                                    ->add('email')
-                                    ->add('siteWeb')
-                                    ->getForm()
-                                    ;
+        $formulaireEntreprise = $this->createForm(EntrepriseType::class,$entreprise);
 
 
         $vueFormulaireEntreprise = $formulaireEntreprise->createView();
@@ -102,13 +96,7 @@ class ProStageController extends AbstractController
     public function formulaireModifEntreprise(Request $request, ObjectManager $manager, Entreprise $entreprise)
     {
 
-        $formulaireEntreprise = $this->createFormBuilder($entreprise)
-        ->add('nom')
-        ->add('activite')
-        ->add('adresse')
-        ->add('email')
-        ->add('siteWeb')
-        ->getForm();
+        $formulaireEntreprise = $this->createForm(EntrepriseType::class,$entreprise);
 
         $formulaireEntreprise->handleRequest($request);
 
