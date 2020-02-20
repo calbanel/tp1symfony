@@ -8,6 +8,7 @@ use App\Entity\Entreprise;
 use App\Entity\Formation;
 use App\Entity\Stage;
 use App\Form\EntrepriseType;
+use App\Form\StageType;
 use App\Repository\StageRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -75,9 +76,6 @@ class ProStageController extends AbstractController
 
         $formulaireEntreprise = $this->createForm(EntrepriseType::class,$entreprise);
 
-
-        $vueFormulaireEntreprise = $formulaireEntreprise->createView();
-
         $formulaireEntreprise->handleRequest($requetteHttp);
 
         if($formulaireEntreprise->isSubmitted() && $formulaireEntreprise->isValid()){
@@ -110,6 +108,26 @@ class ProStageController extends AbstractController
          }
 
         return $this->render('pro_stage/formulaireEntreprise.html.twig',['vueFormulaireEntreprise' => $formulaireEntreprise->createView(), 'action'=>"modifier"]);
+    }
+
+    public function affichageFormulaireCreationStage(Request $requetteHttp, ObjectManager $manager)
+    {
+        $stage = new Stage();
+
+        $formulaireStage = $this->createForm(StageType::class,$stage);
+
+        $formulaireStage->handleRequest($requetteHttp);
+
+        if($formulaireStage->isSubmitted() && $formulaireStage->isValid()){
+
+            $manager->persist($stage);
+            $manager->flush();
+
+            return $this->redirectToRoute('index');
+
+        }
+
+        return $this->render('pro_stage/formulaireStage.html.twig',['vueFormulaireStage' => $formulaireStage->createView()]);
     }
 
 

@@ -30,6 +30,10 @@ formulaireModifEntreprise:
     path: /modifEntreprise/{id}
     controller: App\Controller\ProStageController::formulaireModifEntreprise
 
+formulaireStage:
+    path: /creationStage
+    controller: App\Controller\ProStageController::affichageFormulaireCreationStage
+
 
 
 

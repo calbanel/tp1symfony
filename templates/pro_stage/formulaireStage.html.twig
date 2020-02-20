@@ -1,0 +1,38 @@
+{% extends 'montemplate.html.twig' %}
+
+{% block contenu %}
+
+
+
+
+
+ <h1><center>Formulaire modification stage</center></h1>
+ 	<BR>
+	<BR>
+
+
+		 {{ form_start(vueFormulaireStage, {'attr': {'novalidate': 'novalidate'}}) }}
+
+		 {{form_label(vueFormulaireStage.titre)}}
+		 {{form_widget(vueFormulaireStage.titre)}}
+
+		 {{form_label(vueFormulaireStage.description)}}
+		 {{form_widget(vueFormulaireStage.description)}}
+
+		 {{form_label(vueFormulaireStage.email)}}
+		 {{form_widget(vueFormulaireStage.email)}}
+
+		 <button type="submit" class="btn btn-dark">Valider</button>
+
+		 {{form_end(vueFormulaireStage)}}
+
+
+
+	
+		 
+
+
+<BR>
+	<BR>
+
+{% endblock %}
