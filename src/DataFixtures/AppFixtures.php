@@ -7,6 +7,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use App\Entity\Entreprise;
 use App\Entity\Formation;
 use App\Entity\Stage;
+use App\Entity\User;
 use Faker;
 
 class AppFixtures extends Fixture
@@ -15,6 +16,22 @@ class AppFixtures extends Fixture
     {
 
     	$faker = \Faker\Factory::create('fr_FR');
+
+        $user1 = new User();
+        $user1->setUsername("clement");
+        $roles[] =  'ROLE_ADMIN';
+        $user1->setRoles($roles);
+        $user1->setPassword("clement");
+
+        $manager->persist($user1);
+
+        $user2 = new User();
+        $user2->setUsername("random");
+        $roles2[] =  'ROLE_USER';
+        $user2->setRoles($roles2);
+        $user2->setPassword("random");
+
+        $manager->persist($user2);
 
 
         $info = new Formation();

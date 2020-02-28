@@ -26,32 +26,37 @@
         {% block menu %}
         <div class="row">
 			<div class="col-md-12">
-				<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #2BBBAD;">
-					 
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-						<span class="navbar-toggler-icon"></span>
-					</button> <a class="navbar-brand" href="/">Accueil</a>
-
-					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-						<ul class="navbar-nav">
-							<li class="nav-item">
-								 <a class="nav-link" href="/entreprises">Entreprises</a>
-							</li>
-							<li class="nav-item">
-								 <a class="nav-link" href="/formations">Formations</a>
-							</li>
+		
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #2BBBAD;">
+  <a class="navbar-brand" href="/">Accueil</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+                                 <a class="nav-link" href="/entreprises">Entreprises</a>
+                            </li>
+                            <li class="nav-item">
+                                 <a class="nav-link" href="/formations">Formations</a>
+                            </li>
                             <li class="nav-item">
                                  <a class="nav-link" href="/creationEntreprise">Creation Entreprise</a>
                             </li>
                             <li class="nav-item">
                                  <a class="nav-link" href="/creationStage">Creation Stage</a>
                             </li>
-					</div>
-
-				</nav>
-			</div>
-		</div>
-		<BR>
+    </ul>
+    <span class="navbar-text">
+      {% if app.user %}
+            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Se déconnecter</a>
+    {% else %}
+        <a href="{{ path('formulaireInscription') }}">S'inscrire'</a><a href="{{ path('app_login') }}">Se connecter</a>
+        {% endif %}
+    </span>
+  </div>
+</nav>
+<BR>
         
         {% endblock %}
 

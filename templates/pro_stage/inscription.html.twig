@@ -1,0 +1,24 @@
+{% extends 'montemplate.html.twig' %}
+
+
+{% block contenu %}
+
+<h1><center>Formulaire d'inscription</center></h1>
+ 	<BR>
+	<BR>
+
+		 {{ form_start(vueFormulaireInscription, {'attr': {'novalidate': 'novalidate'}}) }}
+
+		 {{form_label(vueFormulaireInscription.username)}}
+		 {{form_widget(vueFormulaireInscription.username)}}
+
+		 {{form_label(vueFormulaireInscription.password)}}
+		 {{form_widget(vueFormulaireInscription.password)}}
+
+		 <button type="submit" class="btn btn-dark">Valider</button>
+
+		 {{form_end(vueFormulaireInscription)}}
+
+
+
+{% endblock %}

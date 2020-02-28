@@ -7,8 +7,10 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Entreprise;
 use App\Entity\Formation;
 use App\Entity\Stage;
+use App\Entity\User;
 use App\Form\EntrepriseType;
 use App\Form\StageType;
+use App\Form\UserType;
 use App\Repository\StageRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -128,6 +130,26 @@ class ProStageController extends AbstractController
         }
 
         return $this->render('pro_stage/formulaireStage.html.twig',['vueFormulaireStage' => $formulaireStage->createView()]);
+    }
+
+    public function affichageFormulaireInscription(Request $requetteHttp, ObjectManager $manager)
+    {
+        $user = new User();
+
+        $formulaireUser = $this->createForm(UserType::class,$user);
+
+        $formulaireUser->handleRequest($requetteHttp);
+
+        if($formulaireUser->isSubmitted() && $formulaireUser->isValid()){
+
+            $manager->persist($user);
+            $manager->flush();
+
+            return $this->redirectToRoute('app_login');
+
+        }
+
+        return $this->render('pro_stage/inscription.html.twig',['vueFormulaireInscription' => $formulaireUser->createView()]);
     }
 
 
