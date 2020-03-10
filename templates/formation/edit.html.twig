@@ -1,0 +1,11 @@
+{% extends 'montemplate.html.twig' %}
+
+{% block title %}ProStage{% endblock %}
+
+{% block contenu %}
+    <center><h1>Formulaire modification entreprise</h1></center><BR>
+
+    {{ include('formation/_form.html.twig', {'button_label': 'Modifier'}) }}
+<BR>
+
+{% endblock %}

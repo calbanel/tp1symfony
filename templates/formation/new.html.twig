@@ -1,0 +1,11 @@
+{% extends 'montemplate.html.twig' %}
+
+{% block title %}ProStage{% endblock %}
+
+{% block contenu %}
+    <h1><center>Formulaire création entreprise</h1></center>
+
+    {{ include('formation/_form.html.twig', {'button_label': 'Valider'}) }}
+    <BR>
+
+{% endblock %}
