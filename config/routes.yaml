@@ -7,7 +7,7 @@ affichageStageParEntreprise:
     controller: App\Controller\ProStageController::affichageStageParEntreprise
 
 affichageStageParFormation:
-    path: /formations/{id}
+    path: /forma/{id}
     controller: App\Controller\ProStageController::affichageStageParFormation
 
 entreprises:
@@ -15,7 +15,7 @@ entreprises:
     controller: App\Controller\ProStageController::entreprises
 
 formations:
-    path: /formations
+    path: /forma
     controller: App\Controller\ProStageController::formations
 
 stages:
