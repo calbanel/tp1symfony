@@ -33,6 +33,7 @@ security:
     access_control:
         - { path: /creationEntreprise, roles: ROLE_ADMIN }
         - { path: ^/formation, roles: ROLE_ADMIN }
+        - { path: ^/admin, roles: ROLE_ADMIN }
         - { path: /creationStage, roles: ROLE_USER }
 
     encoders:
