@@ -5,3 +5,9 @@ easy_admin:
         - App\Entity\Stage
         - App\Entity\User
         - App\Entity\Formation
+    design:
+        brand_color: '#F9D954'
+        assets:
+            css:
+                # ...
+                - 'css/admin.css'

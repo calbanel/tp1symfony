@@ -1,0 +1,10 @@
+:root {
+    /* make the backend contents as wide as the browser window */
+    --body-max-width: 60%;
+    /* change the background color of the <body> */
+    --body-bg: #F9D954;
+    /* make the base font size smaller */
+    --font-size-base: 13px;
+    /* remove all border radius to make corners straight */
+    --border-radius: 0px;
+}
